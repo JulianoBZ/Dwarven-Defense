@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://debj1qsce24vc"]
+
+[ext_resource type="Texture2D" uid="uid://c3ak4ushcp27f" path="res://Assets/Sprites/Resources/re_food.png" id="1_dprm5"]
+[ext_resource type="Script" path="res://Scenes/Resources.gd" id="1_ukdef"]
+[ext_resource type="Texture2D" uid="uid://pb3sxg7dbe6x" path="res://Assets/Sprites/Resources/re_wood.png" id="2_02qq5"]
+[ext_resource type="Texture2D" uid="uid://dld3ig2rtbefd" path="res://Assets/Sprites/Resources/re_drink.png" id="3_fd2no"]
+[ext_resource type="Texture2D" uid="uid://bhadv4hnhpvsr" path="res://Assets/Sprites/Resources/re_iron.png" id="4_8c3en"]
+
+[node name="Resources" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ukdef")
+
+[node name="Food" type="Label" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 7.0
+offset_right = 474.0
+offset_bottom = 33.0
+text = "Food: "
+
+[node name="Sprite2D" type="Sprite2D" parent="Food"]
+position = Vector2(-16, 11)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_dprm5")
+
+[node name="Wood" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 34.0
+text = "Wood: "
+
+[node name="Sprite2D" type="Sprite2D" parent="Wood"]
+position = Vector2(-16, 11)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_02qq5")
+
+[node name="Drink" type="Label" parent="."]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 7.0
+offset_right = 339.0
+offset_bottom = 33.0
+text = "Drink: "
+
+[node name="Sprite2D" type="Sprite2D" parent="Drink"]
+position = Vector2(-16, 11)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_fd2no")
+
+[node name="Iron" type="Label" parent="."]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 7.0
+offset_right = 210.0
+offset_bottom = 33.0
+text = "Iron: "
+
+[node name="Sprite2D" type="Sprite2D" parent="Iron"]
+position = Vector2(-16, 11)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_8c3en")

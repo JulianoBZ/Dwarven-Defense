@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs6j8rhj025mu"]
+
+[ext_resource type="Script" path="res://Scenes/Development Screen.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://int36hv4tpps" path="res://Scenes/Buildings/Building Button.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://cvx3j4np21lmt" path="res://Assets/Sprites/Buildings/develop_map.png" id="2_460ja"]
+[ext_resource type="PackedScene" uid="uid://debj1qsce24vc" path="res://Scenes/Resources.tscn" id="3_636ar"]
+
+[node name="Development Screen" type="Node2D"]
+position = Vector2(64, 24)
+script = ExtResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 300)
+scale = Vector2(2, 2)
+texture = ExtResource("2_460ja")
+
+[node name="Next_turn" type="Button" parent="."]
+offset_left = -24.0
+offset_top = 543.0
+offset_right = 156.0
+offset_bottom = 598.0
+text = "Next Turn"
+
+[node name="To Defense" type="Button" parent="."]
+offset_left = 841.0
+offset_top = 1.0
+offset_right = 1021.0
+offset_bottom = 56.0
+text = "To Defense Screen"
+
+[node name="Building Button" parent="." instance=ExtResource("2")]
+position = Vector2(911, 298)
+start_type = 3
+
+[node name="Building Button2" parent="." instance=ExtResource("2")]
+position = Vector2(181, 526)
+
+[node name="Building Button3" parent="." instance=ExtResource("2")]
+position = Vector2(571, 43)
+
+[node name="Building Button4" parent="." instance=ExtResource("2")]
+position = Vector2(181, 145)
+
+[node name="Building Button5" parent="." instance=ExtResource("2")]
+position = Vector2(509, 549)
+
+[node name="Building Button6" parent="." instance=ExtResource("2")]
+position = Vector2(394, 230)
+
+[node name="Building Button7" parent="." instance=ExtResource("2")]
+position = Vector2(160, 288)
+
+[node name="Building Button8" parent="." instance=ExtResource("2")]
+position = Vector2(683, 111)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 300)
+
+[node name="Resources" parent="." instance=ExtResource("3_636ar")]
+offset_left = -64.0
+offset_top = -24.0
+offset_right = -64.0
+offset_bottom = -24.0
+
+[connection signal="pressed" from="Next_turn" to="." method="_on_Next_turn_pressed"]
+[connection signal="pressed" from="To Defense" to="." method="_on_To_Defense_pressed"]

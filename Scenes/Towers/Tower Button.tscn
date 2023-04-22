@@ -1,0 +1,114 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs8bc55po3em3"]
+
+[ext_resource type="Script" path="res://Scenes/Towers/Tower Button.gd" id="1"]
+
+[node name="Tower Button" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Build Button" type="Button" parent="."]
+offset_right = 48.0
+offset_bottom = 48.0
+tooltip_text = "Build a tower Here!"
+
+[node name="Manage_Building" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 48.0
+offset_bottom = 48.0
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -45.0
+offset_top = -22.0
+offset_right = 93.0
+offset_bottom = 78.0
+
+[node name="TowerBut1" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 11.0
+offset_right = 57.0
+offset_bottom = 44.0
+tooltip_text = "Ballista Tower:
+- 2 Wood
+- 2 Food
+"
+text = "B"
+
+[node name="TowerBut2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 11.0
+offset_right = 114.0
+offset_bottom = 44.0
+tooltip_text = "Canon:
+- 2 Wood
+- 2 Iron
+- 2 Drink"
+text = "C"
+
+[node name="TowerBut3" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 50.0
+offset_right = 57.0
+offset_bottom = 83.0
+tooltip_text = "Mage Tower:
+- 2 Wood
+- 5 Drink
+- 1 Food"
+text = "M"
+
+[node name="TowerBut4" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 51.0
+offset_right = 114.0
+offset_bottom = 84.0
+tooltip_text = "Machine Gun Tower:
+- 2 Wood
+- 4 Iron
+- 2 Drink"
+text = "G"
+
+[node name="Built_Tower" type="Node2D" parent="."]
+
+[node name="Manage_Panel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -15.0
+offset_right = 74.0
+offset_bottom = 64.0
+
+[node name="Destroy_button" type="Button" parent="Manage_Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 64.0
+offset_bottom = 73.0
+text = "$"
+
+[node name="Upgrade_button" type="Button" parent="Manage_Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 64.0
+offset_bottom = 39.0
+tooltip_text = "Upgrade"
+text = "Up"
+
+[connection signal="pressed" from="Build Button" to="." method="_on_Build_Button_pressed"]
+[connection signal="pressed" from="Manage_Building" to="." method="_on_Manage_Building_pressed"]
+[connection signal="button_down" from="Panel/TowerBut1" to="." method="_on_tower_but_1_button_down"]
+[connection signal="button_down" from="Panel/TowerBut2" to="." method="_on_tower_but_2_button_down"]
+[connection signal="button_down" from="Panel/TowerBut3" to="." method="_on_tower_but_3_button_down"]
+[connection signal="button_down" from="Panel/TowerBut4" to="." method="_on_tower_but_4_button_down"]
+[connection signal="button_down" from="Manage_Panel/Destroy_button" to="." method="_on_destroy_button_button_down"]
+[connection signal="button_down" from="Manage_Panel/Upgrade_button" to="." method="_on_upgrade_button_button_down"]

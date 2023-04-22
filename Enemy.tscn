@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://icon.png" type="Texture2D" id=2]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends PathFollow2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+var health = 10
+var t = 0
+var type = \"Enemy\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+func _process(delta):
+	t += delta
+	offset = t * 200 
+"
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 14.0357
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 88.0
+
+[node name="Enemy" type="PathFollow2D"]
+script = SubResource( 3 )
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )

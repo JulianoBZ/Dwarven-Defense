@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=3 uid="uid://da2efh6qnnshf"]
+
+[ext_resource type="Script" path="res://Scenes/Map1.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d3wcwn4iy8wxc" path="res://Assets/map1.png" id="2_tf6a7"]
+[ext_resource type="PackedScene" uid="uid://debj1qsce24vc" path="res://Scenes/Resources.tscn" id="2_v2jxu"]
+[ext_resource type="PackedScene" uid="uid://cs8bc55po3em3" path="res://Scenes/Towers/Tower Button.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bs6j8rhj025mu" path="res://Scenes/Development Screen.tscn" id="5"]
+[ext_resource type="Texture2D" uid="uid://7b4betjpgk4e" path="res://Assets/Sprites/photo_2023-02-16_12-23-22.jpg" id="6_bffp6"]
+[ext_resource type="Texture2D" uid="uid://cvy67iiyx48kr" path="res://Assets/Sprites/photo_2022-04-01_21-20-01.jpg" id="7_2aql5"]
+
+[sub_resource type="Curve2D" id="4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3, 125, 0, 0, 0, 0, 183.275, 121.583, 0, 0, 0, 0, 357.597, 85.1667, 0, 0, 0, 0, 443.264, 51.9167, 0, 0, 0, 0, 570.768, -0.333313, 0, 0, 0, 0, 720.186, -30.4167, 0, 0, 0, 0, 850.678, -28.8333, 0, 0, 0, 0, 876.578, -14.5833, 0, 0, 0, 0, 888.531, 4.41669, 0, 0, 0, 0, 894.508, 26.5833, 0, 0, 0, 0, 888.531, 47.1667, 0, 0, 0, 0, 882.554, 66.1667, 0, 0, 0, 0, 854.663, 99.4167, 0, 0, 0, 0, 823.783, 127.917, 0, 0, 0, 0, 759.035, 167.5, 0, 0, 0, 0, 657.43, 253, 0, 0, 0, 0, 554.83, 330.583, 0, 0, 0, 0, 402.423, 395.5, 0, 0, 0, 0, 315.76, 466.75, 0, 0, 0, 0, 306.795, 525.333, 0, 0, 0, 0, 323.729, 563.333, 0, 0, 0, 0, 351.62, 590.25, 0, 0, 0, 0, 411.388, 618.75, 0, 0, 0, 0, 559.81, 650.417, 0, 0, 0, 0, 768, 688.417, 0, 0, 0, 0, 961.248, 715.333, 0, 0, 0, 0, 1169.44, 742.25)
+}
+point_count = 27
+
+[node name="Map1" type="Node2D" groups=["map"]]
+script = ExtResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(2, 2)
+texture = ExtResource("2_tf6a7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Resources" parent="Camera2D" instance=ExtResource("2_v2jxu")]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+
+[node name="Tower Button" parent="." instance=ExtResource("4")]
+position = Vector2(416, 124)
+
+[node name="Tower Button2" parent="." instance=ExtResource("4")]
+position = Vector2(157, 273)
+
+[node name="Tower Button3" parent="." instance=ExtResource("4")]
+position = Vector2(423, 316)
+
+[node name="Tower Button4" parent="." instance=ExtResource("4")]
+position = Vector2(855, 518)
+
+[node name="Tower Button5" parent="." instance=ExtResource("4")]
+position = Vector2(447, 465)
+
+[node name="Tower Button6" parent="." instance=ExtResource("4")]
+position = Vector2(668, 354)
+
+[node name="Tower Button7" parent="." instance=ExtResource("4")]
+position = Vector2(948, 160)
+
+[node name="Tower Button8" parent="." instance=ExtResource("4")]
+position = Vector2(674, 197)
+
+[node name="To Development" type="Button" parent="."]
+offset_left = 915.0
+offset_top = 22.0
+offset_right = 1075.0
+offset_bottom = 94.0
+text = "To Development"
+
+[node name="Development Screen" parent="." instance=ExtResource("5")]
+position = Vector2(64, 675)
+
+[node name="Next_turn" type="Button" parent="."]
+offset_left = 65.0
+offset_top = 567.0
+offset_right = 245.0
+offset_bottom = 622.0
+text = "Next Turn"
+
+[node name="WaveLabel" type="Label" parent="."]
+offset_left = -2.0
+offset_top = 54.0
+offset_right = 95.0
+offset_bottom = 99.0
+text = "Wave: 1"
+
+[node name="VillageHealth" type="Label" parent="."]
+offset_left = -2.0
+offset_top = 103.0
+offset_right = 95.0
+offset_bottom = 148.0
+
+[node name="WaveLabel2" type="Label" parent="."]
+offset_top = 710.0
+offset_right = 97.0
+offset_bottom = 755.0
+text = "Wave: 1"
+
+[node name="VillageHealth2" type="Label" parent="."]
+offset_top = 757.0
+offset_right = 97.0
+offset_bottom = 802.0
+
+[node name="wave_timer" type="Timer" parent="."]
+
+[node name="WinningScreen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(579, 338)
+texture = ExtResource("6_bffp6")
+
+[node name="Label" type="Label" parent="WinningScreen"]
+offset_left = -400.0
+offset_top = -277.0
+offset_right = 400.0
+offset_bottom = -71.0
+theme_override_font_sizes/font_size = 100
+text = "Congratulations!"
+
+[node name="LosingScreen" type="Sprite2D" parent="WinningScreen"]
+visible = false
+position = Vector2(-4, -12.5)
+scale = Vector2(2.53913, 2.20199)
+texture = ExtResource("7_2aql5")
+
+[node name="Label" type="Label" parent="WinningScreen/LosingScreen"]
+offset_left = -185.497
+offset_top = -96.5038
+offset_right = 176.503
+offset_bottom = -30.5038
+theme_override_font_sizes/font_size = 45
+text = "You Lose!"
+horizontal_alignment = 1
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-2.98834, 166.211)
+scale = Vector2(1.00389, 0.631579)
+curve = SubResource("4")
+
+[connection signal="pressed" from="To Development" to="." method="_on_To_Development_pressed"]
+[connection signal="pressed" from="Next_turn" to="." method="_on_next_turn_pressed"]
+[connection signal="timeout" from="wave_timer" to="." method="_on_wave_timer_timeout"]

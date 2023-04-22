@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://2wf76s3a5qkl"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/Test_Enemy.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://cgj5qaxtspauk" path="res://Scenes/Enemies/Skeleton.png" id="2_tqpi4"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 14.0357
+
+[sub_resource type="RectangleShape2D" id="2"]
+
+[node name="Test_Enemy" type="PathFollow2D" groups=["enemy"]]
+script = ExtResource("2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_tqpi4")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("2")
+
+[node name="Death_Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Death_Timer" to="." method="_on_Death_Timer_timeout"]

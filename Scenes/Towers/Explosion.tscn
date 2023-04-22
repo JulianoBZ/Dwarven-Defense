@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ovfq0r8jt5dx"]
+
+[ext_resource type="Texture2D" uid="uid://r1o8kfwh37l5" path="res://Assets/Sprites/exp2.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://ct70i335qr3ot" path="res://Assets/Sprites/exp3.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://degdcc1qoscmy" path="res://Assets/Sprites/exp1.png" id="3"]
+[ext_resource type="Script" path="res://Scenes/Towers/Explosion.gd" id="4"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Explosion" type="AnimatedSprite2D"]
+sprite_frames = SubResource("1")
+script = ExtResource("4")
+
+[connection signal="animation_finished" from="." to="." method="_on_Explosion_animation_finished"]

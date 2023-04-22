@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx2l5shjam14n"]
+
+[ext_resource type="Script" path="res://Scenes/Towers/Tower.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://22dsbgpoqxuj" path="res://icon.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dnldgbww7bnmh" path="res://Assets/Sprites/Base.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bsmwmlf85e8ek" path="res://Assets/Sprites/Tower_Range.png" id="4"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 88.0
+
+[node name="Tower" type="Node2D" groups=["tower"]]
+script = ExtResource("1")
+
+[node name="Base" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Tower-Top" type="Sprite2D" parent="Node2D"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Tower_Range" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("1")
+
+[node name="Area3D-Sprite2D" type="Sprite2D" parent="Area2D/Tower_Range"]
+modulate = Color(1, 1, 1, 0.376471)
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("4")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Projectiles" type="Node" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
